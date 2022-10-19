@@ -45,9 +45,6 @@ end
 
 function sqrt(a)
     local x = 1
-
-
-
     x = x - (x * x - a) / ( 2 * x)
     x = x - (x * x - a) / ( 2 * x)
     x = x - (x * x - a) / ( 2 * x)
@@ -55,7 +52,6 @@ function sqrt(a)
     x = x - (x * x - a) / ( 2 * x)
     x = x - (x * x - a) / ( 2 * x)
     x = x - (x * x - a) / ( 2 * x)
-
     return x
 end
 
@@ -75,9 +71,9 @@ function degrees(angle)
     return angle / ( pi / 180 )
 end
 
-local a = { 1.5707288, -0.2121144, 0.0742610, -0.0187293 }
+-- https://dsp.stackexchange.com/a/25771
 function arcsin(x)
-
+    local a = { 1.5707288, -0.2121144, 0.0742610, -0.0187293 }
     function horner(a, x)
         local res = a[#a]
         for i = #a - 1, 1, -1 do
@@ -157,6 +153,10 @@ function dailyIntensity(d, m, h)
     return solarIntensity
 end
 
+for x = 0.1, 10, 0.1 do
+    print(sqrt2(x, 1/10000))
+end
+
 -- for m = 6,6 do
 --     for d = 21, 21 do
 --         local declination = radians(declination(dateAngle(d, m)))
@@ -168,9 +168,9 @@ end
 --     end
 -- end
 
-for h = -12, 12, 1/6 do
-    print(h * 60 .. "," .. dailyIntensity(21, 6, h) .. "," .. dailyIntensity(21, 12, h))
-end
+-- for h = -12, 12, 1/6 do
+--     print(h * 60 .. "," .. dailyIntensity(21, 6, h) .. "," .. dailyIntensity(21, 12, h))
+-- end
 
 -- function show(a)
 --     print(a, cos(a), sin(a))
