@@ -1,6 +1,5 @@
 #!/bin/sh
-
-time docker run --rm -it \
+docker run --rm -it \
     -v `pwd`:/opt/nodemcu-firmware:delegated \
     -v `pwd`/artifical-sun:/opt/lua:delegated \
     --user `id -u` --platform linux/amd64 \
